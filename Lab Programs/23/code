@@ -1,0 +1,21 @@
+%{
+#include <stdio.h>
+int line = 1;
+%}
+
+%%
+\n              { line++; }
+.*              { printf("Line %d: %s\n", line, yytext); }
+%%
+
+int main()
+{
+    printf("Enter the text:\n");
+    yylex();
+    return 0;
+}
+
+int yywrap()
+{
+    return 1;
+}
