@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, b;
+    char op;
+
+    printf("Enter operator (+, -, *): ");
+    scanf(" %c", &op);
+
+    printf("Enter two operands: ");
+    scanf("%d %d", &a, &b);
+
+    printf("\nGenerated Target Code:\n");
+
+    printf("LOAD R1, %d\n", a);
+    printf("LOAD R2, %d\n", b);
+
+    switch(op)
+    {
+        case '+':
+            printf("ADD R1, R2\n");
+            break;
+
+        case '-':
+            printf("SUB R1, R2\n");
+            break;
+
+        case '*':
+            printf("MUL R1, R2\n");
+            break;
+
+        default:
+            printf("Invalid operator\n");
+            return 0;
+    }
+
+    printf("STORE RESULT, R1\n");
+
+    return 0;
+}
