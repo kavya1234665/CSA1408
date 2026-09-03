@@ -1,0 +1,36 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+
+^[ \t]*\/\/.*$       {
+                        printf("Given line is a SINGLE-LINE COMMENT\n");
+                      }
+
+^[ \t]*\/\*.*\*\/[ \t]*$ {
+                        printf("Given line is a MULTI-LINE COMMENT\n");
+                      }
+
+^[ \t]*$              {
+                        printf("Empty line\n");
+                      }
+
+.*                    {
+                        printf("Given line is NOT a COMMENT\n");
+                      }
+
+%%
+
+int yywrap()
+{
+    return 1;
+}
+
+int main()
+{
+    printf("Enter a line:\n");
+    yylex();
+
+    return 0;
+}
