@@ -1,7 +1,0 @@
-%%
-[A-Z]   { printf("Capital\n"); }
-[a-z]   { printf("Not Capital\n"); }
-.|\n    { /* Ignore other characters and newlines */ }
-%%
-int main() { yylex(); return 0; }
-int yywrap() { return 1; } 
